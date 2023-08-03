@@ -1,0 +1,5 @@
+# EXAMPLE_COMPONENT
+root: dist
+location_include: includes/*.conf
+directory: visible 
+

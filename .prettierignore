@@ -1,0 +1,12 @@
+# node
+node_modules
+package-lock.json
+
+# build
+dist
+coverage
+
+# json files are formatted by editor, ignore them otherwise we may get conflicts with the editor setting
+*.json
+
+README.md

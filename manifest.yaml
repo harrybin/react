@@ -1,0 +1,8 @@
+# EXAMPLE_COMPONENT
+---
+applications:
+    - name: 'react'
+      buildpack: staticfile_buildpack
+      memory: 64M
+      random-route: true
+      path: dist

@@ -1,0 +1,20 @@
+# /node_modules/* and /bower_components/* in the project root are ignored by default
+
+# Ignore static files
+public/**
+
+# Ignore dist files
+dist/**
+build/**
+
+# Ignore test, coverage report
+test/coverage/**
+
+# Ignore css typing files
+*.css.d.ts
+
+#ignore generated DTO files
+api/**
+
+# Ignore docs, those are the github pages generated from the md file (coding guidelines)
+docs/**

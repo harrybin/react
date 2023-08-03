@@ -1,0 +1,54 @@
+# EXAMPLE_COMPONENT
+# tye application configuration file
+# read all about it at https://github.com/dotnet/tye
+#
+# when you've given us a try, we'd love to know what you think:
+#    https://aka.ms/AA7q20u
+#
+
+###
+#
+#  We assume that the dotnetcore project is checked out right beside this react project.
+#  So this tye file will expect it at "../dotnetcore"
+#
+###
+name: react-fe-AND-dotnet-api-template
+services:
+    - name: dotnet-api-api
+      project: ../dotnetcore/DotnetApiTemplate/DotnetApiTemplate.csproj
+      workingDirectory: ../dotnetcore
+      bindings:
+          - port: 1234
+            protocol: http
+            connectionString: 'http://${host}:${port}'
+    - name: postgres
+      image: postgres:14.6
+      workingDirectory: ../dotnetcore
+      env:
+          - name: POSTGRES_USER
+            value: admin
+          - name: POSTGRES_PASSWORD
+            value: admin
+          - name: POSTGRES_DB
+            value: DotnetApiTemplate
+      bindings:
+          - port: 5432
+            connectionString: Server=${host};Port=${port};User Id=${env:POSTGRES_USER};Password=${env:POSTGRES_PASSWORD};Database=${env:POSTGRES_DB};
+      volumes:
+          - name: postgres-storage
+            source: ./.volumes/postgresql/data
+            target: /var/lib/postgresql/data
+    - name: adminer
+      image: wodby/adminer
+      workingDirectory: ../dotnetcore
+      env:
+          - name: ADMINER_DEFAULT_SERVER
+            value: postgres
+          - name: ADMINER_DEFAULT_DB_DRIVER
+            value: pgsql
+          - name: ADMINER_DEFAULT_DB_NAME
+            value: DotnetApiTemplate
+      bindings:
+          - port: 5050
+            containerPort: 9000
+            protocol: http

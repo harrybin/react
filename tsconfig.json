@@ -1,0 +1,74 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "lib": [
+            "esnext",
+            "DOM",
+            "DOM.Iterable"
+        ],
+        "module": "ESNext",
+        "skipLibCheck": true,
+        /* Bundler mode */
+        "moduleResolution": "node", //usually "bundler", but not yet supported by sonarqube
+        //"allowImportingTsExtensions": true, //since typescript 5.0, not yet supported by sonarqube
+        "resolveJsonModule": true,
+        "noEmit": true,
+        "jsx": "react-jsx",
+        // Babel
+        // Ensure that .d.ts files are created by tsc, but not .js files
+        "declaration": true,
+        // Ensure that Babel can safely transpile files in the TypeScript project
+        "isolatedModules": true,
+        /* Linting */
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": false,
+        /* legacy settings */
+        "types": [
+            "node",
+            "vitest/globals",
+            "vite/client",
+        ],
+        "strictNullChecks": true,
+        "allowJs": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "outDir": "./dist",
+        "sourceMap": true,
+        "removeComments": true,
+        "pretty": true,
+        "forceConsistentCasingInFileNames": true,
+        "noImplicitReturns": true,
+        "noImplicitAny": true,
+        //needed for mui color index access
+        "importHelpers": true,
+        "experimentalDecorators": false,
+        "emitDecoratorMetadata": false,
+    },
+    "include": [
+        "api/**/*",
+        "src/**/*",
+        "test",
+        "custom.d.ts",
+        "integrationDotNetservice/**/*"
+    ],
+    "exclude": [
+        "src/**/*.test.*"
+    ],
+    //ts-node options see: https://github.com/TypeStrong/ts-node/issues/1007
+    "ts-node": { // these options are overrides used only by ts-node // same as our --compilerOptions flag and our TS_NODE_COMPILER_OPTIONS environment variable
+        "esm": true, // suspiciously unequivalent to `ts-node --esm`, which no longer seems to work anyway. ¯\_(⊙︿⊙)_/¯
+        "experimentalSpecifierResolution": "node", // or `node --loader ts-node/esm --experimental-specifier-resolution=node`
+        "module": "ESNext", // "module": "CommonJS" should work too
+        "compilerOptions": {
+            "moduleResolution": "node",
+            "module": "esnext",
+            "target": "esnext",
+            "types": [
+                "node"
+            ],
+            "esModuleInterop": true,
+        }
+    },
+}

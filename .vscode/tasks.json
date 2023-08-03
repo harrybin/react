@@ -1,0 +1,64 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "ci",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "npm: install with ci",
+      "detail": "install dependencies from package"
+    },
+    {
+      "label": "npm: start + templateDotNet",
+      //"type": "tye-run",
+      "type": "npm",
+      "script": "tye",
+      //"watch": true
+    },
+    {
+      "type": "npm",
+      "script": "start",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "label": "npm: start",
+      "detail": "serve it locally with an devserve"
+    },
+    {
+      "type": "npm",
+      "script": "test",
+      "problemMatcher": [],
+      "label": "npm: test",
+      "detail": "vitest run",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
+    },
+    {
+      "type": "npm",
+      "script": "test:ui",
+      "problemMatcher": [],
+      "label": "npm: test:ui",
+      "detail": "vitest web ui on port 3333, watch + coverage",
+      "group": {
+        "kind": "test",
+      }
+    },
+    {
+      "type": "npm",
+      "script": "play",
+      "problemMatcher": [],
+      "label": "playwright",
+      "detail": "run playwright tests",
+      "group": {
+        "kind": "test",
+      }
+    }
+  ]
+}

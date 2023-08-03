@@ -1,0 +1,8 @@
+{
+    "snapshot": false,
+    "supportsES6": true,
+    "enumPropertyNaming": "UPPERCASE",
+    "typeMappings": {
+        "set": "Array"
+    }
+}

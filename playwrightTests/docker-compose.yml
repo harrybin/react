@@ -1,0 +1,20 @@
+# This docker-compose file describes the testenvironment that is
+#  needed for running tests in node-testcontainers
+version: '3'
+# EXAMPLE_CODE
+services:
+    postgres:
+        image: postgres:14.6
+        environment:
+            POSTGRES_USER: admin
+            POSTGRES_PASSWORD: admin
+            POSTGRES_DB: DotnetApiTemplate
+        ports:
+            - '5432' # set container port, host port is set randomly to prevent port conflicts
+    api:
+        image: dotnetapi_template
+        environment:
+            ASPNETCORE_ENVIRONMENT: 'Development'
+            CONNECTIONSTRINGS__POSTGRES: 'Host=postgres;Username=admin;Password=admin;Database=DotnetApiTemplate'
+        ports:
+            - '1234:80'

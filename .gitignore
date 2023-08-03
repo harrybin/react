@@ -1,0 +1,23 @@
+# node
+node_modules
+
+# build
+dist
+
+# tests
+coverage
+
+# public 
+env.js
+
+# webpack bundle analyzer
+webpack_stats.json
+
+# Tye folders
+.tye/
+.volumes/
+
+playwrightTests/test-results/
+playwrightTests/test-reports
+/playwright/.cache/
+/.DS_Store
