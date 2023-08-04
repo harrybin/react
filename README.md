@@ -25,7 +25,7 @@ npm install
 ```
 Once the installation is complete, the template generator will automatically start to set up the template according to your requirements.
 These modes are available:
-### Template Generator Modes [TBD - needs to be fixed again]
+### Template Generator Modes [TBD - needs to be fixed]
 
 ⚡ Cleared Mode:  This mode generates the necessary boilerplate code you need to start. It just contains the necessary files and no examples. This mode is suitable for developers who want to start directly/dont need examples.
 
