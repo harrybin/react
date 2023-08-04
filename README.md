@@ -4,8 +4,15 @@
 This is a template for new web UI projects, based on **React** and **Material UI**.
 
 ## Prerequisits
-Ensure you have at least the LTS version of nodejs installed. (current latest non LTS is v20.5.x)
+Ensure you have at least the LTS version of nodejs installed. (current non LTS is v20.5.x). 
 It's recommended to use `nvm` for installing/managing node.
+
+When using tye with `tempalte-net7srv` you also need to have the following installed:
+- docker ([install-using-the-convenience-script](https://docs.docker.com/engine/install/ubuntu/#in)stall-using-the-convenience-script)
+- dotnetcore-sdk-6.0   ( `sudo apt-get install dotnet-sdk-6.0` )
+- dotnetcore-sdk-7.0   ( `sudo apt-get install dotnet-sdk-7.0` )
+- tye   ( `dotnet tool install -g Microsoft.Tye --version "0.11.0-alpha.22111.1"` )
+
 
 ## Dependencies
 
