@@ -28,10 +28,10 @@
     "lint:fix": "npm run lint:fix:eslint",
     "lint:fix:eslint": "eslint --fix --ext js,jsx,ts,tsx .",
     "clean": "rimraf dist && rimraf coverage",
-    "play": "../dotnetcore/DotnetApiTemplate/buildDockerImage.sh && npx playwright test",
-    "play:ui": "../dotnetcore/DotnetApiTemplate/buildDockerImage.sh && npx playwright test --ui",
-    "play:debug": "../dotnetcore/DotnetApiTemplate/buildDockerImage.sh && npx playwright test --debug",
-    "play:generate": "../dotnetcore/DotnetApiTemplate/buildDockerImage.sh && npx playwright codegen",
+    "play": "../net7srv/DotnetApiTemplate/buildDockerImage.sh && npx playwright test",
+    "play:ui": "../net7srv/DotnetApiTemplate/buildDockerImage.sh && npx playwright test --ui",
+    "play:debug": "../net7srv/DotnetApiTemplate/buildDockerImage.sh && npx playwright test --debug",
+    "play:generate": "../net7srv/DotnetApiTemplate/buildDockerImage.sh && npx playwright codegen",
     "api:generate": "cd api && npx ts-node ./generator.ts"
   },
   "dependencies": {

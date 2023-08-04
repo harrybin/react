@@ -84,7 +84,7 @@ new testcommand, therefore you have always a clean environment before starting t
     > Error: No Docker client strategy found
  
  - Dotnet 7 is installed   
-   See [REAMDE.md](../dotnetcore/README.md) of the dotnet
+   See [REAMDE.md](../net7srv/README.md) of the dotnet
 
 
 #### Here are the main playwright commands:
@@ -144,7 +144,7 @@ This starts a vite web server serving the app from the dist folder (your last lo
 
 ## Accessing BE dotnet API
 If you also use the dotNet you may like to run it beside this UI project and directly use it's API as an example.
-Assuming the dotNet is located right bedise this project `../dotnetcore` you can start both parallel using
+Assuming the dotNet is located right bedise this project `../net7srv` you can start both parallel using
 ```sh
 npm run tye
 ```
