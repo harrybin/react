@@ -25,7 +25,7 @@ npm install
 ```
 Once the installation is complete, the template generator will automatically start to set up the template according to your requirements.
 These modes are available:
-### Template Generator Modes
+### Template Generator Modes [TBD - needs to be fixed again]
 
 ⚡ Cleared Mode:  This mode generates the necessary boilerplate code you need to start. It just contains the necessary files and no examples. This mode is suitable for developers who want to start directly/dont need examples.
 
@@ -193,8 +193,6 @@ Or use the debug target `Launch API Generator` (uses default params/arguments)
 
 ---
 ## Initial setup
-- when using **atlassian JIRA** extension:
-    edit `.vscode/settings.json`: search for the "atlascode.jira" settings and replace all occurrences of **XXX** with the abbreviation of your project used in JIRA (like 'REC' for recon, 'EPS' ...)
 - set up your environments (LOCAL, DEV, INT, PROD) in `public/apiConfig.js`
   - change the key of the environment your want to use to `env`
   - import configuration in components via importing the default export from `src/configuration/configuration`
