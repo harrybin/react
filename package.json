@@ -39,7 +39,7 @@
     "@emotion/css": "^11.11.2",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@harrybin/react-common": "github:harrybin/react-common",
+    "@harrybin/react-common": "github:XpiritBV/react-common",
     "@mui/icons-material": "^5.14.3",
     "@mui/material": "^5.14.3",
     "@mui/utils": "^5.14.3",
