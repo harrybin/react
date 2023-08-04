@@ -8,22 +8,22 @@
 
 ###
 #
-#  We assume that the net7srv project is checked out right beside this react project.
-#  So this tye file will expect it at "../net7srv"
+#  We assume that the template-net7srv project is checked out right beside this react project.
+#  So this tye file will expect it at "../template-net7srv"
 #
 ###
 name: react-fe-AND-dotnet-api-template
 services:
     - name: dotnet-api-api
-      project: ../net7srv/DotnetApiTemplate/DotnetApiTemplate.csproj
-      workingDirectory: ../net7srv
+      project: ../template-net7srv/DotnetApiTemplate/DotnetApiTemplate.csproj
+      workingDirectory: ../template-net7srv
       bindings:
           - port: 1234
             protocol: http
             connectionString: 'http://${host}:${port}'
     - name: postgres
       image: postgres:14.6
-      workingDirectory: ../net7srv
+      workingDirectory: ../template-net7srv
       env:
           - name: POSTGRES_USER
             value: admin
@@ -40,7 +40,7 @@ services:
             target: /var/lib/postgresql/data
     - name: adminer
       image: wodby/adminer
-      workingDirectory: ../net7srv
+      workingDirectory: ../template-net7srv
       env:
           - name: ADMINER_DEFAULT_SERVER
             value: postgres
