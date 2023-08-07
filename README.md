@@ -23,6 +23,7 @@ The intention regarding dependencies is, to keep them minimal.
 -   [Typescript 5](https://devblogs.microsoft.com/typescript/announcing-typescript-5-0/)
 -   [Vite](https://vitejs.dev)
 -   [Vite Test](https://vitest.dev) for unit testing
+-   [@harrybin/react-common](https://github.com/XpiritBV/react-common)
 -   [Prettier](https://www.npmjs.com/package/prettier) for code formatting/linting
 
 ## Setup locally for developers
