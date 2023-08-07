@@ -26,6 +26,12 @@ The intention regarding dependencies is, to keep them minimal.
 -   [Prettier](https://www.npmjs.com/package/prettier) for code formatting/linting
 
 ## Setup locally for developers
+First you need to authenticate against github for the @harrybin scope.
+Use your github username and a PAT for at least reading repos
+```sh
+npm login --scope=@harrybin --auth-type=legacy --registry=https://npm.pkg.github.com
+```
+
 To get started, install the dependencies and complete the template setup by running the following command:
  ```sh
 npm install
