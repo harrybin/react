@@ -92,7 +92,7 @@ new testcommand, therefore you have always a clean environment before starting t
     npx playwright install
     ```
  - Docker   
-    Ensure DockerDesktop is running properly.
+    Ensure Docker is running properly.
     If you get the error 
     > Error: No Docker client strategy found
  
@@ -123,6 +123,12 @@ Use Codegenerator to generate tests
 ```sh
 npm run play:generate
 ```
+
+> Hint: to make it properly run in WSL you may need to install chrome (or ans other browser) in wsl:
+> ```sh
+> wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+> sudo apt -y install ./google-chrome-stable_current_amd64.deb
+> ```
 
 
 ## Build/Deployment
