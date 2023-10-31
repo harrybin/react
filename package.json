@@ -41,7 +41,7 @@
         "@emotion/styled": "^11.11.0",
         "@harrybin/react-common": "github:harrybin/react-common",
         "@mui/icons-material": "^5.14.15",
-        "@mui/material": "^5.14.15",
+        "@mui/material": "^5.14.16",
         "@mui/utils": "^5.14.15",
         "file-saver": "^2.0.5",
         "notistack": "3.0.1",
