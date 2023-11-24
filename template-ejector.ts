@@ -8,7 +8,7 @@ import { exec } from 'child_process';
  */
 export async function ejectGenerator(templateMode: TEMPLATE_MODE) {
     try {
-        const packageJsonPath = '../package.json';
+        const packageJsonPath = './package.json';
         const packageJsonContent = await fs.promises.readFile(packageJsonPath, 'utf8');
         const packageJson: Record<string, any> = await JSON.parse(packageJsonContent);
 
