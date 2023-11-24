@@ -38,16 +38,16 @@ export async function ejectGenerator(templateMode: TEMPLATE_MODE) {
             );
         }
 
-        exec('npm run lint:fix', (err, stdout) => {
-            if (err) throw new Error(err.message);
-            console.log(stdout);
-            console.log(
-                `Template has been successfully ejected! To complete the setup please follow these steps:
-            1. Rename the root folder(currently react) to match your project name
-            2. Run npm install to install packages
-            3. Commit all changes. Now you are ready to start 🚀`
-            );
-        });
+        // exec('npm run lint:fix', (err, stdout) => {
+        //     if (err) throw new Error(err.message);
+        //     console.log(stdout);
+        //     console.log(
+        //         `Template has been successfully ejected! To complete the setup please follow these steps:
+        //     1. Rename the root folder(currently react) to match your project name
+        //     2. Run npm install to install packages
+        //     3. Commit all changes. Now you are ready to start 🚀`
+        //     );
+        // });
     } catch (error: any) {
         console.error(`An error occurred while ejecting the template: \n ${error.message} \n
         please try to clone the template again and run the npm install command.
