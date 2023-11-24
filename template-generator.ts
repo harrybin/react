@@ -37,11 +37,11 @@ let deletedCount = 0;
 const validFileExt: string[] = ['.ts', '.tsx', '.cfignore', '.yml', '.yaml', '.html', '.conf', ''];
 
 async function getSearchDirs() {
-    const rootPath = path.resolve(__dirname, '../');
-    const srcPath = path.resolve(__dirname, '../src');
-    const nginxPath = path.resolve(__dirname, '../nginx');
-    const playwrightPath = path.resolve(__dirname, '../playwrightTests');
-    const publicPath = path.resolve(__dirname, '../public');
+    const rootPath = path.resolve(__dirname, './');
+    const srcPath = path.resolve(__dirname, './src');
+    const nginxPath = path.resolve(__dirname, './nginx');
+    const playwrightPath = path.resolve(__dirname, './playwrightTests');
+    const publicPath = path.resolve(__dirname, './public');
     const paths = [srcPath, nginxPath, playwrightPath, publicPath];
     let files: string[] = [];
     for (const path of paths) {
