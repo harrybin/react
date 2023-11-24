@@ -29,8 +29,14 @@ export async function ejectGenerator(templateMode: TEMPLATE_MODE) {
         await fs.promises.writeFile(packageJsonPath, JSON.stringify(packageJson, null, 2));
 
         // delete scripts
-        await fs.promises.unlink('./template-generator.ts');
-        await fs.promises.unlink('./template-ejector.ts');
+        try {
+            await fs.promises.unlink('./template-generator.ts');
+            await fs.promises.unlink('./template-ejector.ts');
+        } catch (error) {
+            console.log(
+                'Failed to unlink template-generator.ts or template-ejector.ts. This is no big deal. But you may remove those two files yourself.'
+            );
+        }
 
         exec('npm run lint:fix', (err, stdout) => {
             if (err) throw new Error(err.message);
