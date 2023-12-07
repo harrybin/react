@@ -19,7 +19,6 @@
     "start": "vite serve",
     "build": "vite build --emptyOutDir",
     "preview": "vite preview",
-    "template": "node --no-warnings=ExperimentalWarning --loader ts-node/esm ./template-generator.ts",
     "tye": "tye run --watch --dashboard & npm start",
     "test": "vitest run",
     "test:watch": "vitest watch",

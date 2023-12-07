@@ -120,7 +120,7 @@ function ConvertTo-ClearedFile {
   # delete test components
   if ($FileContents -match $TEST_COMPONENT -Or $FileContents -match $HASH_COMPONENT) {
     Remove-Item -Path $FileName
-    $deletedCount++
+    $script:deletedCount++
     return $FileContents
   }
 
@@ -198,12 +198,11 @@ function Convert-Template {
     }
     if (!($fileContents -eq $result)) {
       Set-Content -Path $fileName -Value $result
-      $changedCount++
-      return
+      $script:changedCount++
     }
   }
-
-  Write-Host $changedCount
+  
+  Write-Host "`n✅ Template generated, $script:changedCount file(s) changed, $script:deletedCount file(s) deleted." -ForegroundColor Green
 }
 
 function Rename-Template {
@@ -237,5 +236,7 @@ function Clear-Tools {
 
 Export-ModuleMember Write-Banner
 Export-ModuleMember Rename-Template
+Export-ModuleMember Convert-Template
+Export-ModuleMember Clear-Tools
 Export-ModuleMember Convert-Template
 Export-ModuleMember Clear-Tools
