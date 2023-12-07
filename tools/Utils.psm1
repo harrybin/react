@@ -19,6 +19,24 @@ $TSX_COMMENT_REPLACE = "(?:\{/\*|//) EXAMPLE_START \*/\}([\s\S]*?)(?:\{/\*|//) E
 $changedCount = 0
 $deletedCount = 0
 
+function Write-Banner {
+  $banner = @"
+   __   __  _______  ___   ______    ___   _______ 
+  |  |_|  ||       ||   | |    _ |  |   | |       |
+  |       ||    _  ||   | |   | ||  |   | |_     _|
+  |       ||   |_| ||   | |   |_||_ |   |   |   |  
+   |     | |    ___||   | |    __  ||   |   |   |  
+  |   _   ||   |    |   | |   |  | ||   |   |   |  
+  |__| |__||___|    |___| |___|  |_||___|   |___|  
+
+  REACT TEMPLATE GENERATOR:
+  #########################
+                           
+"@
+
+  Write-Host $banner -ForegroundColor Yellow
+}
+
 function Get-Files {
   param (
     [string]$Path,
@@ -188,4 +206,28 @@ function Convert-Template {
   Write-Host $changedCount
 }
 
+function Rename-Template {
+  param (
+    [string]$Path,
+    [string]$ProjectName,
+    [string]$ProjectDescription
+  )
+
+  $rootPath = Split-Path -Path $Path -Parent
+  $packageJsonFileName = Join-Path $rootPath "package.json"
+  if (!(Test-Path -Path $packageJsonFileName)) {
+    Write-Error "no package.json file found at '$packageJsonFileName'"
+  }
+  
+  $packageJson = Get-Content -Path $packageJsonFileName -Raw | ConvertFrom-Json
+
+  $packageJson.name = $ProjectName
+  $packageJson.description = $ProjectDescription
+  $packageJson.author = ""
+
+  Set-Content -Path $packageJsonFileName (ConvertTo-Json $packageJson -Depth 4)
+}
+
+Export-ModuleMember Write-Banner
+Export-ModuleMember Rename-Template
 Export-ModuleMember Convert-Template
