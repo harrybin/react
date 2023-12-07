@@ -1,6 +1,6 @@
 using namespace System.Management.Automation.Host
 
-Import-Module (Join-Path $PSScriptRoot "Utils") -Force
+Import-Module (Join-Path $PSScriptRoot "TemplateGenerator") -Force
 
 
 Write-Banner
