@@ -230,7 +230,9 @@ function Rename-Template {
 
 function Clear-Tools {
   $toolsFolderPath = $PSScriptRoot
-  Remove-Item -Path $toolsFolderPath -Recurse -Force
+  
+  Remove-Item -Path (Join-Path $toolsFolderPath "TemplateGenerator.psm1") -Force
+  Remove-Item -Path (Join-Path $toolsFolderPath "Run-TemplateGenerator.ps1") -Force
 }
 
 Export-ModuleMember Write-Banner
