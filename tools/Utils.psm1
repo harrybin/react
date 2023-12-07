@@ -13,9 +13,11 @@ $TEST_COMPONENT = "// ?EXAMPLE_COMPONENT"
 $HASH_COMPONENT = "# ?EXAMPLE_COMPONENT[\s\S]*?\n"
 
 $HASH_COMMENT_REPLACE = "# EXAMPLE_START([\s\S]*?)# EXAMPLE_END"
-$TS_COMMENT_REPLACE = "\s*//\s*EXAMPLE_START[\s\S]*?//\s*EXAMPLE_END"
-$TSX_COMMENT_REPLACE = "(?:\{/\*|//) EXAMPLE_START \*/\}[\s\S]*?(?:\{/\*|//) EXAMPLE_END \*/\}"
+$TS_COMMENT_REPLACE = "\s*//\s*EXAMPLE_START([\s\S]*?)//\s*EXAMPLE_END"
+$TSX_COMMENT_REPLACE = "(?:\{/\*|//) EXAMPLE_START \*/\}([\s\S]*?)(?:\{/\*|//) EXAMPLE_END \*/\}"
 
+$changedCount = 0
+$deletedCount = 0
 
 function Get-Files {
   param (
@@ -56,7 +58,7 @@ function Find-Files {
     $files += $recursiveFiles
   }
 
-  $rootFiles = Get-Files -Path $rootPath
+  $rootFiles = Get-Files -Path $rootPath -Recurse $false
   return @($rootFiles + $files)
 }
 
@@ -100,6 +102,7 @@ function ConvertTo-ClearedFile {
   # delete test components
   if ($FileContents -match $TEST_COMPONENT -Or $FileContents -match $HASH_COMPONENT) {
     Remove-Item -Path $FileName
+    $deletedCount++
     return $FileContents
   }
 
@@ -111,6 +114,33 @@ function ConvertTo-ClearedFile {
   }
 
   return $replacedContent
+}
+
+function ConvertTo-IntermediateFile {
+  param(
+    [string]$FileName,
+    [string]$FileContents,
+    [string]$FileExtension
+  )
+
+  # replace to tsx comments
+  # $1 has to be escaped for using the capture group
+  $tsxReplaced = $FileContents -replace $TSX_COMMENT_REPLACE, "{/* `$1 */}"
+
+  # replace ts comments
+  $tsReplaced = $tsxReplaced -replace $TS_COMMENT_REPLACE, "`n/* `$1 */"
+
+  # find all hash comments and for each match, split the text into lines and prepend a double slash
+  $hashMatches = [regex]::Matches($tsReplaced, $HASH_COMMENT_REPLACE)
+  $hashReplaced = $tsReplaced
+  foreach ($match in $hashMatches) {
+    $blockContent = $match.Groups[1].Value
+    $lines = $blockContent -split "`r?`n"
+    $replacement = $lines -join "`n// "
+    $hashReplaced = $hashReplaced -replace [regex]::Escape($match.Value), $replacement
+  }
+
+  return $hashReplaced
 }
 
 function ConvertTo-FullFile {
@@ -127,7 +157,6 @@ function Convert-Template {
     [string]$Path,
     [TemplateMode]$Mode
   )
-  $changedCount = 0
 
   $files = Find-Files -Path $Path
 
