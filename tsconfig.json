@@ -1,29 +1,47 @@
 {
     "compilerOptions": {
-        "target": "es6",
-        "lib": [
-            "esnext",
-            "DOM",
-            "DOM.Iterable"
-        ],
-        "module": "ESNext",
+        /* Based on https://www.totaltypescript.com/tsconfig-cheat-sheet */
+        /* Base Options: */
+        "esModuleInterop": true,
         "skipLibCheck": true,
-        /* Bundler mode */
-        "moduleResolution": "node", //usually "bundler", but not yet supported by sonarqube
-        //"allowImportingTsExtensions": true, //since typescript 5.0, not yet supported by sonarqube
+        "target": "es2022",
+        "allowJs": true,
         "resolveJsonModule": true,
-        "noEmit": true,
-        "jsx": "react-jsx",
-        // Babel
-        // Ensure that .d.ts files are created by tsc, but not .js files
-        "declaration": true,
-        // Ensure that Babel can safely transpile files in the TypeScript project
+        "moduleDetection": "force",
         "isolatedModules": true,
-        /* Linting */
+        
+        /* Strictness */
         "strict": true,
+        "noUncheckedIndexedAccess": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": false,
+
+        "declaration": true,
+        "sourceMap": true,
+
+        "moduleResolution": "node",
+        "module": "ESNext",
+        "noEmit": true,
+        "noImplicitReturns": true,
+        "noImplicitAny": true,
+
+        "lib": [
+            "ESNext",
+            "DOM",
+            "DOM.Iterable"
+        ],
+
+        "jsx": "react-jsx",
+
+        /* Bundler mode */
+         //usually "bundler", but not yet supported by sonarqube
+        //"allowImportingTsExtensions": true, //since typescript 5.0, not yet supported by sonarqube
+        
+        // Babel
+        // Ensure that .d.ts files are created by tsc, but not .js files
+        /* Linting */
+        
         /* legacy settings */
         "types": [
             "node",
@@ -31,16 +49,11 @@
             "vite/client",
         ],
         "strictNullChecks": true,
-        "allowJs": true,
-        "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
         "outDir": "./dist",
-        "sourceMap": true,
-        "removeComments": true,
-        "pretty": true,
+
         "forceConsistentCasingInFileNames": true,
-        "noImplicitReturns": true,
-        "noImplicitAny": true,
+
         //needed for mui color index access
         "importHelpers": true,
         "experimentalDecorators": false,
