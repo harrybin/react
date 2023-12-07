@@ -24,6 +24,6 @@ if (!($projectName)) {
 $projectDescription = Read-Host -Prompt "Provide short description of your project. (optional)"
 
 # Execute the Generator
-#Rename-Template -Path $PSScriptRoot -ProjectName $projectName -ProjectDescription $projectDescription
-#Convert-Template -Path $PSScriptRoot -Mode $chosenMode
+Rename-Template -Path $PSScriptRoot -ProjectName $projectName -ProjectDescription $projectDescription
+Convert-Template -Path $PSScriptRoot -Mode $chosenMode
 Clear-Tools
