@@ -27,7 +27,7 @@
         "noImplicitAny": true,
 
         "lib": [
-            "es2022",
+            "ESNext",
             "DOM",
             "DOM.Iterable"
         ],
