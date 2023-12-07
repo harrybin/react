@@ -238,5 +238,3 @@ Export-ModuleMember Write-Banner
 Export-ModuleMember Rename-Template
 Export-ModuleMember Convert-Template
 Export-ModuleMember Clear-Tools
-Export-ModuleMember Convert-Template
-Export-ModuleMember Clear-Tools

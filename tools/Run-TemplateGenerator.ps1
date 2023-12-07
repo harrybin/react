@@ -10,7 +10,7 @@ $isCleared = New-Object ChoiceDescription "&Cleared", "⚡ Lightweight boilerpla
 $isIntermediate = New-Object ChoiceDescription "&Intermediate", "🛠️ Commented Examples and best-practices"
 $isFull = New-Object ChoiceDescription "&Full", "🚀 Additional examples and best-practices"
 
-$mode = $host.UI.PromptForChoice("-- Mode --", "Choose a template", @(
+$mode = $host.UI.PromptForChoice("-- Mode --", "Choose a generation mode", @(
     [ChoiceDescription[]]($isCleared, $isIntermediate, $isFull)
   ), 0)
 $chosenMode = [Enum]::Parse([TemplateMode], $mode)
