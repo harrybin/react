@@ -228,6 +228,12 @@ function Rename-Template {
   Set-Content -Path $packageJsonFileName (ConvertTo-Json $packageJson -Depth 4)
 }
 
+function Clear-Tools {
+  $toolsFolderPath = $PSScriptRoot
+  Remove-Item -Path $toolsFolderPath -Recurse -Force
+}
+
 Export-ModuleMember Write-Banner
 Export-ModuleMember Rename-Template
 Export-ModuleMember Convert-Template
+Export-ModuleMember Clear-Tools
