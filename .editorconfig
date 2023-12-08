@@ -7,11 +7,15 @@ root = true
 [*]
 end_of_line = lf
 indent_size = 2
+insert_final_newline = true
 
 [*.{tsx,ts,js,json}]
 charset = utf-8
 indent_style = space
 indent_size = 4
+
+[package.json]
+indent_size = 2
 
 # Markdown
 [*.md]
@@ -19,4 +23,3 @@ charset = utf-8
 indent_style = space
 indent_size = 4
 trim_trailing_whitespace = false
-insert_final_newline = true
