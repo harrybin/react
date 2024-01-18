@@ -40,7 +40,7 @@
         "@emotion/react": "^11.11.1",
         "@emotion/styled": "^11.11.0",
         "@harrybin/react-common": "github:harrybin/react-common",
-        "@mui/icons-material": "^5.14.15",
+        "@mui/icons-material": "^5.15.5",
         "@mui/material": "^5.14.15",
         "@mui/utils": "^5.14.15",
         "file-saver": "^2.0.5",
