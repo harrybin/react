@@ -27,20 +27,15 @@ The intention regarding dependencies is, to keep them minimal.
 -   [Prettier](https://www.npmjs.com/package/prettier) for code formatting/linting
 
 ## Setup locally for developers
-First you need to authenticate against github for the @harrybin scope.
-Use your github username and a PAT for at least reading repos
-```sh
-npm login --scope=@harrybin --auth-type=legacy --registry=https://npm.pkg.github.com
-```
-
 To get started, install the dependencies and complete the template setup by running the following command:
  ```sh
 npm install
 ```
-Once the installation is complete, the template generator will automatically start to set up the template according to your requirements.
-These modes are available:
-### Template Generator Modes [TBD - needs to be fixed]
-<details>
+
+## Template Generator 
+This template comes with a script enabling you to decide how you like to start/use the template.
+The following modes are awailable:
+
 ⚡ Cleared Mode:  This mode generates the necessary boilerplate code you need to start. It just contains the necessary files and no examples. This mode is suitable for developers who want to start directly/dont need examples.
 
 🛠️ Intermediate Mode:  Intermediate mode provides boilerplate code with commented examples. This mode is suitable if you want to look up example code/components without actually integrating them into your app.
@@ -48,7 +43,12 @@ These modes are available:
 🚀 Full Mode:  Contains a lot of examples. While the examples included in Full mode are not necessarily needed in your app, they can be helpful for demonstrating various topics such as API calls, routing, and best practices.
 
 🔥 None Mode: This mode is useful if you want to make changes regarding the template
-</details>
+
+For running the generator script execute:
+```shell
+pwsh .\tools\Run-TemplateGenerator.ps1
+```
+---
 
 ### Development
 Before starting development please have a look at [common react coding guidelines](./docs/index.md).

@@ -1,14 +1,15 @@
 import React, { useState, Suspense } from 'react';
 import { makeStyles } from 'tss-react/mui';
 import { AppTheme } from '../AppTheme';
+import { Container } from '@mui/material';
 // EXAMPLE_START
-import { Box, Button, Container, Grid, Typography, Alert, Divider, TextField, Stack } from '@mui/material';
+import { Box, Button, Grid, Typography, Alert, Divider, TextField, Stack } from '@mui/material'; // multiple line import for template
 import { useTranslation } from '../common/i18n/useTranslation';
 import ChuckNorrisJoke from './ChuckNorrisJoke';
 import { useNavigate } from 'react-router-dom';
 import { Routes } from '../routes/routes';
 import { getRoutePath } from '../routes/routeConfig';
-import { ConfirmationDialog, Markdown, useDebugMode } from '@harrybin/react-common'; //EXAMPLE_CODE DebugMode
+import { ConfirmationDialog, If, Markdown, useDebugMode } from '@harrybin/react-common'; //EXAMPLE_CODE DebugMode
 import { DotNetApi } from './dotNetTemplate/DotNetApi';
 import { DotNetApiSkeleton } from './dotNetTemplate/DotNetApiSkeleton';
 import { useUserData } from '../contexts/UserContextProvider';
@@ -20,10 +21,12 @@ const useStyles = makeStyles()((theme: AppTheme) => ({
         marginTop: theme.spacing(5),
         padding: theme.spacing(2),
     },
+    // EXAMPLE_START
     divider: {
         marginTop: theme.spacing(2),
         marginBottom: theme.spacing(2),
     },
+    // EXAMPLE_END
 }));
 
 /**
@@ -38,7 +41,7 @@ function Main() {
     const [queryCount, setQueryCount] = useState<number>(0);
 
     const { isInDebugMode } = useDebugMode();
-    const [isDebugVisible, setDebugVisible] = useState<boolean>(true);
+    const [isDebugVisible, setIsDebugVisible] = useState<boolean>(true);
 
     const { userData, setUserData } = useUserData();
     // EXAMPLE_END
@@ -103,23 +106,18 @@ function Main() {
             {/* EXAMPLE_END */}
             {/* EXAMPLE_START */}
             <Box mt={4}>
-                <Alert
-                    severity={isInDebugMode ? 'error' : 'info'}
-                    children={
-                        isInDebugMode ? (
-                            <Markdown>{translate('debug_active')}</Markdown>
-                        ) : (
-                            <Markdown>{translate('debug_hint')}</Markdown>
-                        )
-                    }
-                />
+                <Alert severity={isInDebugMode ? 'error' : 'info'}>
+                    <If cond={isInDebugMode ? 'error' : 'info'} else={<Markdown>{translate('debug_hint')}</Markdown>}>
+                        <Markdown>{translate('debug_active')}</Markdown>
+                    </If>
+                </Alert>
             </Box>
             <ConfirmationDialog
                 open={isInDebugMode && isDebugVisible}
                 leftButtonLabel="Ok"
                 title={translate('debug_mode')}
                 onClose={() => {
-                    setDebugVisible(false);
+                    setIsDebugVisible(false);
                 }}
             >
                 <Markdown>{translate('debug_active')}</Markdown>
