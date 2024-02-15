@@ -23,9 +23,16 @@ The intention regarding dependencies is, to keep them minimal.
 -   [Typescript 5](https://devblogs.microsoft.com/typescript/announcing-typescript-5-0/)
 -   [Vite](https://vitejs.dev)
 -   [Vite Test](https://vitest.dev) for unit testing
+-   [@harrybin/react-common](https://github.com/XpiritBV/react-common)
 -   [Prettier](https://www.npmjs.com/package/prettier) for code formatting/linting
 
 ## Setup locally for developers
+First you need to authenticate against github for the @harrybin scope.
+Use your github username and a PAT for at least reading repos
+```sh
+npm login --scope=@harrybin --auth-type=legacy --registry=https://npm.pkg.github.com
+```
+
 To get started, install the dependencies and complete the template setup by running the following command:
  ```sh
 npm install
@@ -33,7 +40,7 @@ npm install
 Once the installation is complete, the template generator will automatically start to set up the template according to your requirements.
 These modes are available:
 ### Template Generator Modes [TBD - needs to be fixed]
-
+<details>
 ⚡ Cleared Mode:  This mode generates the necessary boilerplate code you need to start. It just contains the necessary files and no examples. This mode is suitable for developers who want to start directly/dont need examples.
 
 🛠️ Intermediate Mode:  Intermediate mode provides boilerplate code with commented examples. This mode is suitable if you want to look up example code/components without actually integrating them into your app.
@@ -41,8 +48,10 @@ These modes are available:
 🚀 Full Mode:  Contains a lot of examples. While the examples included in Full mode are not necessarily needed in your app, they can be helpful for demonstrating various topics such as API calls, routing, and best practices.
 
 🔥 None Mode: This mode is useful if you want to make changes regarding the template
+</details>
 
 ### Development
+Before starting development please have a look at [common react coding guidelines](./docs/index.md).
 Run the app locally in development mode
 
 ```sh
@@ -86,7 +95,7 @@ new testcommand, therefore you have always a clean environment before starting t
     npx playwright install
     ```
  - Docker   
-    Ensure DockerDesktop is running properly.
+    Ensure Docker is running properly.
     If you get the error 
     > Error: No Docker client strategy found
  
@@ -117,6 +126,12 @@ Use Codegenerator to generate tests
 ```sh
 npm run play:generate
 ```
+
+> Hint: to make it properly run in WSL you may need to install chrome (or ans other browser) in wsl:
+> ```sh
+> wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+> sudo apt -y install ./google-chrome-stable_current_amd64.deb
+> ```
 
 
 ## Build/Deployment
@@ -207,32 +222,6 @@ Or use the debug target `Launch API Generator` (uses default params/arguments)
 ## Fruther information you may find at certain locations
 
 - [./src/common/i18n/README.md](./src/common/i18n/README.md)
-- [./ssoRedirect/README.md](./src/ssoRedirect/README.md)
 
 
 ---
-## Accessing Dev-Server running in WSL2 from another PC/mobile device
-
-WSL has its own network adapter. So if you need to access the Dev-Server from another device in your local network you need to do the following two steps:
-1. Add **portforwarding** to WSL:
-    - open a powershell as administrator
-    - add the fowarding rule like: (replace `192.168.178.42` by the ip addess of your PC)
-    ```ps
-    netsh interface portproxy add v4tov4 listenport=3000 listenaddress=192.168.178.42 connectport=3000 connectaddress=$($(wsl hostname -I).Trim())
-    ```      
-    - see if the rule was properly set:
-    ```ps
-    netsh interface portproxy show v4tov4
-    ```
-    (if you like to remove/delete later on the portforwarding use "`netsh interface portproxy delete v4tov4 listenport=3000 listenaddress=192.168.178.42`")
-
-2. Add a **firewall rule** to the windows firewall allowing connections to port 3000:
-    - open "Windows Defender Firewall" settings by running `wf.msc` (e.g. Windows + R)
-    - select "Incoming Rules" (on the left)
-    - click "New rule..." (on the right)
-      - select "Port" --> Next
-      - enter "3000" --> Next
-      - keep "Allow connection" --> Next
-      - deselect "Public" --> Next
-      - gice it a name like "Web-Debug on Port 3000" --> Done
-

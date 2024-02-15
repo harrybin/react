@@ -11,11 +11,13 @@ export default defineConfig({
             '**/.{vscode,git,github,cache,output,temp,volumes,tye}/**',
             '**/{rollup,vite,vitest,build}.config.*',
         ],
-        deps: {
-            inline: [
-                '@mui/icons-material',
-                //in case using devexpress, you may need to add those packages here too
-            ],
+        server: {
+            deps: {
+                inline: [
+                    '@mui/icons-material',
+                    //in case using devexpress, you may need to add those packages here too
+                ],
+            },
         },
         globals: true, // doesn't work properly, you still need to "import { vi } from 'vitest';" in each test file
         environment: 'jsdom',
