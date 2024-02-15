@@ -28,9 +28,8 @@ export function AppBar() {
     // EXAMPLE_START
     const translate = useTranslation();
     const { isInDebugMode } = useDebugMode();
-    // EXAMPLE_END
-
     const { userData } = useUserData();
+    // EXAMPLE_END
 
     function getUserInfo() {
         return `${userData.Firstname?.substring(0, 1)}${userData.Lastname?.substring(0, 1)}`;
