@@ -10,8 +10,8 @@ import { grey } from '@mui/material/colors';
 import BugReportIcon from '@mui/icons-material/BugReport';
 import { useTranslation } from '../common/i18n/useTranslation';
 import { useDebugMode, If } from '@harrybin/react-common';
-import { useUserData } from '../contexts/UserContextProvider';
 // EXAMPLE_END
+import { useUserData } from '../contexts/UserContextProvider';
 
 const useStyles = makeStyles()((theme: AppTheme) => ({
     colorWhite: {
@@ -28,9 +28,9 @@ export function AppBar() {
     // EXAMPLE_START
     const translate = useTranslation();
     const { isInDebugMode } = useDebugMode();
-    const { userData } = useUserData();
     // EXAMPLE_END
-
+    
+    const { userData } = useUserData();
     function getUserInfo() {
         return `${userData.Firstname?.substring(0, 1)}${userData.Lastname?.substring(0, 1)}`;
     }
