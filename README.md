@@ -44,7 +44,7 @@ pwsh .\tools\Run-TemplateGenerator.ps1
 ---
 
 ### Development
-Before starting development please have a look at [common react coding guidelines](./docs/index.md).
+Before starting development please have a look at [common react coding guidelines](https://github.com/harrybin/react/blob/main/docs/index.md).
 Run the app locally in development mode
 
 ```sh
@@ -197,7 +197,7 @@ We use [Jest](https://jestjs.io) as a test runner and [react-testing-library](ht
 ### Generate new API models
 
 The [openapi-generator](https://github.com/OpenAPITools/openapi-generator) is used to generate APIs based on a backend service's API definition. It will always delete and re-create existing APIs.
-Generate new APIs with 
+Generate new APIs with (:warning: TODO: you need to adjust the generator script to match your BE services)
 
 ```sh
 # Optional: Edit service endpoint in api/generator.ts
