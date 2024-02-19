@@ -7,13 +7,6 @@ This is a template for new web UI projects, based on **React** and **Material UI
 Ensure you have at least the LTS version of nodejs installed. (current non LTS is v20.5.x). 
 It's recommended to use `nvm` for installing/managing node.
 
-When using tye with `tempalte-net7srv` you also need to have the following installed:
-- docker ([install-using-the-convenience-script](https://docs.docker.com/engine/install/ubuntu/#in)stall-using-the-convenience-script)
-- dotnetcore-sdk-6.0   ( `sudo apt-get install dotnet-sdk-6.0` )
-- dotnetcore-sdk-7.0   ( `sudo apt-get install dotnet-sdk-7.0` )
-- tye   ( `dotnet tool install -g Microsoft.Tye --version "0.11.0-alpha.22111.1"` )
-
-
 ## Dependencies
 
 The intention regarding dependencies is, to keep them minimal.
@@ -23,7 +16,7 @@ The intention regarding dependencies is, to keep them minimal.
 -   [Typescript 5](https://devblogs.microsoft.com/typescript/announcing-typescript-5-0/)
 -   [Vite](https://vitejs.dev)
 -   [Vite Test](https://vitest.dev) for unit testing
--   [@harrybin/react-common](https://github.com/XpiritBV/react-common)
+-   [@harrybin/react-common](https://github.com/harrybin/react-common)
 -   [Prettier](https://www.npmjs.com/package/prettier) for code formatting/linting
 
 ## Setup locally for developers
@@ -99,8 +92,8 @@ new testcommand, therefore you have always a clean environment before starting t
     If you get the error 
     > Error: No Docker client strategy found
  
- - Dotnet 7 is installed   
-   See [REAMDE.md](../net7srv/README.md) of the dotnet
+ - Dotnet X is installed   
+   your dotnet backend up and runnig
 
 
 #### Here are the main playwright commands:
@@ -166,7 +159,7 @@ This starts a vite web server serving the app from the dist folder (your last lo
 
 ## Accessing BE dotnet API
 If you also use the dotNet you may like to run it beside this UI project and directly use it's API as an example.
-Assuming the dotNet is located right bedise this project `../net7srv` you can start both parallel using
+Assuming the dotNet is located right bedise this project `../<yourDotnetProject>` you can start both parallel using
 ```sh
 npm run tye
 ```
