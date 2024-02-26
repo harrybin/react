@@ -10,6 +10,7 @@ import { CacheProvider, ThemeProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
 import { CssBaseline } from '@mui/material';
 import { UserDataProvider } from './contexts/UserContextProvider';
+import AppRoutes from './routes/AppRoutes';
 
 export const muiCache = createCache({
     key: 'mui',
@@ -27,11 +28,7 @@ function App(): React.ReactElement {
                                 <Router>
                                     <UserDataProvider>
                                         <Frame>
-                                            <Routes>
-                                                {routes.map((route, i) => (
-                                                    <Route key={i} path={route.path} element={route.getComponent()} />
-                                                ))}
-                                            </Routes>
+                                            <AppRoutes />
                                         </Frame>
                                     </UserDataProvider>
                                 </Router>

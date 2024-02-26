@@ -3,16 +3,15 @@ import { List, ListItem, ListItemIcon, ListItemText, Paper, Grid, Button, Divide
 import { useNavigate } from 'react-router-dom';
 import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
 import { SnackbarAction, useSnackbar } from 'notistack';
-import { getRoutePath } from './routeConfig';
-import { Routes } from './routes';
 import React from 'react';
+import { routes } from './routes';
 
 function TestRoute() {
     const navigate = useNavigate();
     const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
-    const handleClick = (target: Routes) => {
-        navigate(getRoutePath(target));
+    const handleClick = (target: string) => {
+        navigate(target);
     };
 
     return (
@@ -77,7 +76,7 @@ function TestRoute() {
 
                         <ListItem
                             onClick={() => {
-                                handleClick(Routes.home);
+                                handleClick(routes.home);
                             }}
                         >
                             <ListItemIcon>
