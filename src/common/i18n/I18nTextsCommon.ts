@@ -14,4 +14,5 @@ export default interface I18nTexts {
     user: WebExtensionMessage;
     firstname: WebExtensionMessage;
     lastname: WebExtensionMessage;
+    route_not_found: WebExtensionMessage;
 }

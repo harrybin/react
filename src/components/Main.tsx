@@ -7,12 +7,11 @@ import { Box, Button, Grid, Typography, Alert, Divider, TextField, Stack } from 
 import { useTranslation } from '../common/i18n/useTranslation';
 import ChuckNorrisJoke from './ChuckNorrisJoke';
 import { useNavigate } from 'react-router-dom';
-import { Routes } from '../routes/routes';
-import { getRoutePath } from '../routes/routeConfig';
 import { ConfirmationDialog, If, Markdown, useDebugMode } from '@harrybin/react-common'; //EXAMPLE_CODE DebugMode
 import { DotNetApi } from './dotNetTemplate/DotNetApi';
 import { DotNetApiSkeleton } from './dotNetTemplate/DotNetApiSkeleton';
 import { useUserData } from '../contexts/UserContextProvider';
+import { routes } from '../routes/routes';
 
 // EXAMPLE_END
 
@@ -61,7 +60,7 @@ function Main() {
                     </Button>
                 </Grid>
                 <Grid item xs={4}>
-                    <Button color="primary" variant="contained" onClick={() => navigate(getRoutePath(Routes.test))}>
+                    <Button color="primary" variant="contained" onClick={() => navigate(routes.test)}>
                         Testroute
                     </Button>
                 </Grid>

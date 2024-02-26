@@ -34,5 +34,8 @@
   },
   "user": {
     "message": "Benutzer"
+  },
+  "route_not_found": {
+    "message": "Route nicht gefunden"
   }
 }
