@@ -1,8 +1,11 @@
+// allow consoloe logs in error cases
+/* eslint-disable no-console */
+
 import React, { ReactNode } from 'react';
 import { closeSnackbar, enqueueSnackbar, SnackbarAction } from 'notistack';
-import * as StackTrace from 'stacktrace-js';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import StackTracey from 'stacktracey';
 
 interface ErrorBoundaryProps {
     children: ReactNode | ReactNode[];
@@ -12,7 +15,7 @@ interface ErrorBoundaryProps {
 interface ErrorBoundaryState {
     hasError: boolean;
     error: Error;
-    stackframes: StackTrace.StackFrame[];
+    formattedStack: string;
     errorInfo: React.ErrorInfo;
 }
 
@@ -26,31 +29,30 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
         return `[${error.name}] ${error.message}`;
     }
 
-    getCallStack(stackframes: StackTrace.StackFrame[]): string {
-        return stackframes
-            .map(function (frame) {
-                return `   at ${frame?.toString()}`;
-            })
-            .join('\n');
+    getErrorStringWithCallstack(error: Error, formattedStack: string): string {
+        return `Error: ${this.getErrorMessage(error)}\n${formattedStack}`;
     }
 
-    getErrorStringWithCallstack(error: Error, stackframes: StackTrace.StackFrame[]): string {
-        return `Error: ${this.getErrorMessage(error)}\n${this.getCallStack(stackframes)}`;
-    }
-
-    addToNotiStack(message: string, stackframes: StackTrace.StackFrame[]): void {
+    addToNotiStack(message: string, formattedStack: string): void {
         // You can view the information in an alert to see things working like this:
         enqueueSnackbar(
-            `Timestamp: ${new Intl.DateTimeFormat('en', {
-                day: '2-digit',
-                month: '2-digit',
-                year: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-            }).format(new Date())}\nError; ${message}\n at ${stackframes[0].toString()}\n${
-                stackframes[1] ? stackframes[1].toString() : ''
-            }`,
+            <>
+                <Typography>{`Timestamp: ${new Intl.DateTimeFormat('en', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                }).format(new Date())}`}</Typography>
+                <Typography>{`Error: ${message}`}</Typography>
+
+                {formattedStack.split('\n').map((frame, index) => (
+                    <Typography variant="body1" key={'stackframe' + index}>
+                        {frame?.toString()}
+                    </Typography>
+                ))}
+            </>,
             {
                 variant: 'error',
                 style: { whiteSpace: 'pre-line' },
@@ -94,11 +96,13 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
 
     processError(error: Error | undefined) {
         if (!error) return;
-        // callback is called with an Array[StackFrame]
-        StackTrace.fromError(error)
-            .then((stackframes) => {
-                this.setState({ ...this.state, stackframes, error });
-                this.addToNotiStack(this.getErrorMessage(error), stackframes);
+        new StackTracey(error)
+            .withSourcesAsync()
+            .then((stack) => {
+                const formattedStack = stack.asTable();
+                this.setState({ ...this.state, formattedStack, error });
+                console.error(this.getErrorMessage(error) + '\n' + formattedStack);
+                this.addToNotiStack(this.getErrorMessage(error), stack.slice(0, 3).asTable());
             })
             .catch(this.errback);
     }
@@ -112,7 +116,6 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
         this.addToNotiStack = this.addToNotiStack.bind(this);
         this.getErrorStringWithCallstack = this.getErrorStringWithCallstack.bind(this);
         this.getErrorMessage = this.getErrorMessage.bind(this);
-        this.getCallStack = this.getCallStack.bind(this);
 
         window.onerror = (_msg, _url, _line, _col, error) => {
             this.processError(error);
@@ -134,15 +137,12 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
                         </Typography>
                         <Box margin="10px">
                             Stacktrace:
-                            {this.state.stackframes &&
-                                this.state.stackframes.map((frame, index) => {
-                                    return (
-                                        <Typography
-                                            variant="body1"
-                                            key={'stackframe' + index}
-                                        >{`   at ${frame?.toString()}`}</Typography>
-                                    );
-                                })}
+                            {this.state.formattedStack &&
+                                this.state.formattedStack.split('\n').map((frame, index) => (
+                                    <Typography variant="body1" key={'stackframe' + index}>
+                                        {frame?.toString()}
+                                    </Typography>
+                                ))}
                         </Box>
                         <Typography variant="body2">
                             {this.state.errorInfo && this.state.errorInfo.componentStack}

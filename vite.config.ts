@@ -4,15 +4,15 @@ import react from '@vitejs/plugin-react';
 import { nodePolyfills } from 'vite-plugin-node-polyfills';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
-function manualChunks(id: string) {
-    if (id.includes('node_modules')) {
-        // if (id.includes('@<companySpecific>')) {
-        //     return 'vendor_myVendorName';
-        // }
+// function manualChunks(id: string) {
+//     if (id.includes('node_modules')) {
+//         // if (id.includes('@<companySpecific>')) {
+//         //     return 'vendor_myVendorName';
+//         // }
 
-        return 'vendor'; // all other package goes here
-    }
-}
+//         return 'vendor'; // all other package goes here
+//     }
+// }
 
 export default defineConfig(({ command, mode }) => {
     // Load env file based on `mode` in the current working directory.
@@ -27,10 +27,20 @@ export default defineConfig(({ command, mode }) => {
             outDir: '../dist',
             rollupOptions: {
                 external: ['apiConfig.js'],
-                output: {
-                    manualChunks: manualChunks,
+                //do not do manual chunking as the patterlib already implements lazy loading
+                // output: {
+                //     manualChunks: manualChunks,
+                // },
+                onwarn(warning, defaultHandler) {
+                    // ignore for now (until newer vite version), see: https://github.com/vitejs/vite/issues/15012
+                    if (warning.code === 'SOURCEMAP_ERROR') {
+                        return;
+                    }
+
+                    defaultHandler(warning);
                 },
             },
+            sourcemap: true,
         },
         server: {
             port: 3000,
