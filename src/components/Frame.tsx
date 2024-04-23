@@ -10,8 +10,7 @@ export function Frame(props: FrameProps) {
     return (
         <>
             <AppBar />
-
-            {props.children}
+            <main data-testid="main-content">{props.children}</main>
         </>
     );
 }

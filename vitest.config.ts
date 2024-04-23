@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitest/config';
 import AutoImport from 'unplugin-auto-import/vite';
+import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
     test: {
@@ -21,7 +22,7 @@ export default defineConfig({
         },
         globals: true, // doesn't work properly, you still need to "import { vi } from 'vitest';" in each test file
         environment: 'jsdom',
-        setupFiles: './test/setupTests.ts',
+        setupFiles: './test/setupTests.tsx',
         reporters: ['verbose', 'junit', 'vitest-sonar-reporter'],
         outputFile: {
             junit: './coverage/junit.xml',
@@ -36,6 +37,11 @@ export default defineConfig({
         AutoImport({
             imports: ['vitest'],
             dts: true, // generate TypeScript declaration
+        }),
+        svgr({
+            svgrOptions: {
+                // svgr options
+            },
         }),
     ],
 });

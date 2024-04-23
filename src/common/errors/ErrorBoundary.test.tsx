@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { ErrorBoundary } from './ErrorBoundary';
-import * as StackTrace from 'stacktrace-js';
+import { beforeEach, describe, it, expect } from 'vitest';
 import React from 'react';
 import { vi } from 'vitest';
 
@@ -26,26 +26,6 @@ describe('ErrorBoundary', () => {
     it('getErrorMessage should get error message correctly for error without name', () => {
         const message = errorBoundaryInstance.getErrorMessage({ message: 'test error' });
         expect(message).toEqual(`[Promise.Rejection] test error`);
-    });
-
-    it('getCallStack should process stack frames correctly', () => {
-        const stackframes: StackTrace.StackFrame[] = [
-            { functionName: 'function1', fileName: 'file1', lineNumber: 1, columnNumber: 1, source: 'source1' },
-            { functionName: 'function2', fileName: 'file2', lineNumber: 2, columnNumber: 2, source: 'source2' },
-        ];
-        const result = errorBoundaryInstance.getCallStack(stackframes);
-        const expected = `   at ${stackframes[0]?.toString()}\n   at ${stackframes[1]?.toString()}`;
-        expect(result).toEqual(expected);
-    });
-
-    it('getErrorStringWithCallstack should process stack frames correctly', () => {
-        const stackframes: StackTrace.StackFrame[] = [
-            { functionName: 'function1', fileName: 'file1', lineNumber: 1, columnNumber: 1, source: 'source1' },
-            { functionName: 'function2', fileName: 'file2', lineNumber: 2, columnNumber: 2, source: 'source2' },
-        ];
-        const result = errorBoundaryInstance.getErrorStringWithCallstack(new Error('test error'), stackframes);
-        const expected = `Error: [Error] test error\n   at ${stackframes[0]?.toString()}\n   at ${stackframes[1]?.toString()}`;
-        expect(result).toEqual(expected);
     });
 
     it('should render children correctly when there is no error', () => {

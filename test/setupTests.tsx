@@ -59,12 +59,14 @@ vi.mock('notistack', async () => {
         useSnackbar: () => ({
             enqueueSnackbar: vi.fn(),
         }),
+        enqueueSnackbar: vi.fn(),
     };
 });
 
 vi.mock('@harrybin/react-common', async () => ({
     ...(await vi.importActual<object>('@harrybin/react-common')),
     useQuery: vi.fn(),
+    ConfirmationDialog: () => <div data-testid="ConfirmationDialog">a confirmation replacement for tests</div>,
 }));
 
 export function mockUseQuery<T extends object>(mockData: T) {

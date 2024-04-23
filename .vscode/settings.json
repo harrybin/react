@@ -38,5 +38,6 @@
     "custom"
   ],
   "github.gitAuthentication": true,
-  "testing.automaticallyOpenPeekView": "never"
+  "testing.automaticallyOpenPeekView": "never",
+  "vscode-as-git-mergetool.settingsAssistantOnStartup": false
 }

@@ -24,7 +24,7 @@
                 "kind": "test",
                 "isDefault": true
             }
-        },
+        },        
         {
             "type": "npm",
             "script": "test:ui",
