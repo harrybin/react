@@ -1,17 +1,14 @@
 {
     "recommendations": [
+        "editorconfig.editorconfig",
+        "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
         "eamodio.gitlens",
-        "editorconfig.editorconfig",
         "usernamehw.errorlens",
-        "dbaeumer.vscode-eslint",
         "lokalise.i18n-ally",
-        "oouo-diogo-perdigao.docthis",
-        "github.vscode-pull-request-github",
         "actboy168.tasks",
-        "ms-azuretools.vscode-tye",
+        "oouo-diogo-perdigao.docthis",
         "antfu.vite",
         "ZixuanChen.vitest-explorer",
-        "bierner.markdown-emoji"
     ]
 }

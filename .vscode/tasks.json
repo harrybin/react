@@ -5,35 +5,20 @@
     "tasks": [
         {
             "type": "npm",
-            "script": "ci",
-            "group": "build",
-            "problemMatcher": [],
-            "label": "npm: install with ci",
-            "detail": "install dependencies from package"
-        },
-        {
-            "label": "npm: start + net7srv",
-            //"type": "tye-run",
-            "type": "npm",
-            "script": "tye",
-            //"watch": true
-        },
-        {
-            "type": "npm",
             "script": "start",
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
             "problemMatcher": [],
-            "label": "npm: start",
+            "label": "🚀 npm: start",
             "detail": "serve it locally with an devserve"
         },
         {
             "type": "npm",
             "script": "test",
             "problemMatcher": [],
-            "label": "npm: test",
+            "label": "🧪 npm: test",
             "detail": "vitest run",
             "group": {
                 "kind": "test",
@@ -44,7 +29,7 @@
             "type": "npm",
             "script": "test:ui",
             "problemMatcher": [],
-            "label": "npm: test:ui",
+            "label": "🔬 npm: test:ui",
             "detail": "vitest web ui on port 3333, watch + coverage",
             "group": {
                 "kind": "test",
@@ -54,7 +39,7 @@
             "type": "npm",
             "script": "play",
             "problemMatcher": [],
-            "label": "playwright",
+            "label": "▶️ playwright",
             "detail": "run playwright tests",
             "group": {
                 "kind": "test",
