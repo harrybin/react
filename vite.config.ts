@@ -3,6 +3,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { nodePolyfills } from 'vite-plugin-node-polyfills';
 import tsconfigPaths from 'vite-tsconfig-paths';
+import svgr from 'vite-plugin-svgr';
 
 // function manualChunks(id: string) {
 //     if (id.includes('node_modules')) {
@@ -59,6 +60,11 @@ export default defineConfig(({ command, mode }) => {
         plugins: [
             react(),
             tsconfigPaths(),
+            svgr({
+                svgrOptions: {
+                    // svgr options
+                },
+            }),
             nodePolyfills({
                 // To exclude specific polyfills, add them to this list.
                 exclude: [

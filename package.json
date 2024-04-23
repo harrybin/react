@@ -50,7 +50,8 @@
     "react-intl": "6.6.2",
     "react-router-dom": "6.22.0",
     "stacktracey": "^2.1.8",
-    "tss-react": "^4.9.4"
+    "tss-react": "^4.9.4",
+    "vite-plugin-svgr": "^4.2.0"
   },
   "devDependencies": {
     "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
