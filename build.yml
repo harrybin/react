@@ -1,0 +1,20 @@
+# usually this file should be named "azure-pipelines.yml", but for demonstrating the file schema settings it needs to have a different name
+trigger:
+    - master
+
+pool:
+    vmImage: 'ubuntu-latest'
+
+steps:
+    - task: NodeTool@0
+      inputs:
+          versionSpec: '10.x'
+      displayName: 'Install Node.js'
+
+
+    - script: |
+          npm ci
+          npm run build
+      displayName: 'npm install and build'
+
+          

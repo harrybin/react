@@ -1,43 +1,51 @@
 {
-  "git.ignoreLimitWarning": true,
-  "vi.jestCommandLine": "npm run test --",
-  "vi.autoRun": {
-    "watch": false,
-    "onSave": "test-src-file",
-    "onStartup": false
-  },
-  "vi.testExplorer": {
-    "enabled": true,
-    "showInlineError": true
-  },
-  "editor.renderWhitespace": "all",
-  "editor.renderControlCharacters": true,
-  "editor.autoIndent": "full",
-  "editor.insertSpaces": true,
-  "editor.rulers": [
-    120,
-    200
-  ],
-  "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
-  },
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact"
-  ],
-  "i18n-ally.localesPaths": [
-    "src/common/i18n"
-  ],
-  "i18n-ally.displayLanguage": "de",
-  "i18n-ally.sourceLanguage": "en",
-  "i18n-ally.extract.autoDetect": true,
-  "i18n-ally.keystyle": "nested",
-  "i18n-ally.enabledFrameworks": [
-    "chrome-ext",
-    "custom"
-  ],
-  "github.gitAuthentication": true,
-  "testing.automaticallyOpenPeekView": "never",
-  "vscode-as-git-mergetool.settingsAssistantOnStartup": false
+    "git.ignoreLimitWarning": true,
+    "vi.jestCommandLine": "npm run test --",
+    "vi.autoRun": {
+        "watch": false,
+        "onSave": "test-src-file",
+        "onStartup": false
+    },
+    "vi.testExplorer": {
+        "enabled": true,
+        "showInlineError": true
+    },
+    "editor.renderWhitespace": "all",
+    "editor.renderControlCharacters": true,
+    "editor.autoIndent": "full",
+    "editor.insertSpaces": true,
+    "editor.rulers": [
+        120,
+        200
+    ],
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    },
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact"
+    ],
+    "i18n-ally.localesPaths": [
+        "src/common/i18n"
+    ],
+    "i18n-ally.displayLanguage": "de",
+    "i18n-ally.sourceLanguage": "en",
+    "i18n-ally.extract.autoDetect": true,
+    "i18n-ally.keystyle": "nested",
+    "i18n-ally.enabledFrameworks": [
+        "chrome-ext",
+        "custom"
+    ],
+    "github.gitAuthentication": true,
+    "testing.automaticallyOpenPeekView": "never",
+    "vscode-as-git-mergetool.settingsAssistantOnStartup": false,
+    "yaml.schemas": {
+        "https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json": [
+            "build.yml"
+        ],
+        "https://raw.githubusercontent.com/dotnet/tye/main/src/schema/tye-schema.json": [
+            "tye.yaml"
+        ]
+    }
 }

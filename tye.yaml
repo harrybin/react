@@ -17,6 +17,7 @@ services:
     - name: dotnet-api-api
       project: ../template-net7srv/DotnetApiTemplate/DotnetApiTemplate.csproj
       workingDirectory: ../template-net7srv
+      
       bindings:
           - port: 1234
             protocol: http
