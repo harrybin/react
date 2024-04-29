@@ -4,7 +4,7 @@
 window.endpointConfig = {
     name: 'default',
     settings: {},
-    env050dev: {
+    envTest: {
         NAME: 'DEV',
         K8S_NAMESPACE: 'TODO',
         SERVICES_BASE_URL: 'TODO',
