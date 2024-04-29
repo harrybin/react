@@ -52,7 +52,7 @@
     "react-intl": "6.6.5",
     "react-router-dom": "6.22.3",
     "stacktracey": "^2.1.8",
-    "tss-react": "^4.9.6",
+    "tss-react": "^4.9.7",
     "vite-plugin-svgr": "^4.2.0"
   },
   "devDependencies": {
