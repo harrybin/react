@@ -9,39 +9,31 @@
         "resolveJsonModule": true,
         "moduleDetection": "force",
         "isolatedModules": true,
-        
         /* Strictness */
         "strict": true,
         "noUncheckedIndexedAccess": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": false,
-
         "declaration": true,
         "sourceMap": true,
-
         "moduleResolution": "node",
         "module": "ESNext",
         "noEmit": true,
         "noImplicitReturns": true,
         "noImplicitAny": true,
-
         "lib": [
             "ESNext",
             "DOM",
             "DOM.Iterable"
         ],
-
         "jsx": "react-jsx",
-
         /* Bundler mode */
-         //usually "bundler", but not yet supported by sonarqube
+        //usually "bundler", but not yet supported by sonarqube
         //"allowImportingTsExtensions": true, //since typescript 5.0, not yet supported by sonarqube
-        
         // Babel
         // Ensure that .d.ts files are created by tsc, but not .js files
         /* Linting */
-        
         /* legacy settings */
         "types": [
             "node",
@@ -51,9 +43,7 @@
         "strictNullChecks": true,
         "allowSyntheticDefaultImports": true,
         "outDir": "./dist",
-
         "forceConsistentCasingInFileNames": true,
-
         //needed for mui color index access
         "importHelpers": true,
         "experimentalDecorators": false,
@@ -69,19 +59,4 @@
     "exclude": [
         "src/**/*.test.*"
     ],
-    //ts-node options see: https://github.com/TypeStrong/ts-node/issues/1007
-    "ts-node": { // these options are overrides used only by ts-node // same as our --compilerOptions flag and our TS_NODE_COMPILER_OPTIONS environment variable
-        "esm": true, // suspiciously unequivalent to `ts-node --esm`, which no longer seems to work anyway. ¯\_(⊙︿⊙)_/¯
-        "experimentalSpecifierResolution": "node", // or `node --loader ts-node/esm --experimental-specifier-resolution=node`
-        "module": "ESNext", // "module": "CommonJS" should work too
-        "compilerOptions": {
-            "moduleResolution": "node",
-            "module": "esnext",
-            "target": "esnext",
-            "types": [
-                "node"
-            ],
-            "esModuleInterop": true,
-        }
-    },
 }

@@ -17,41 +17,5 @@
                 "node_modules/**"
             ]
         },
-        {
-            "name": "Launch API Generator",
-            "type": "node",
-            "request": "launch",
-            "runtimeExecutable": "node",
-            "runtimeArgs": [
-                "--nolazy",
-                "-r",
-                "ts-node/register/transpile-only"
-            ],
-            "args": [
-                "${workspaceFolder}/api/generator.ts",
-                //here you can add params for the generator            
-            ],
-            "cwd": "${workspaceRoot}/api",
-            "internalConsoleOptions": "openOnSessionStart",
-            "skipFiles": [
-                "<node_internals>/**",
-                "node_modules/**"
-            ]
-        },
-        {
-            "name": "Current TS File",
-            "type": "node",
-            "request": "launch",
-            "args": [
-                "${relativeFile}"
-            ],
-            "runtimeArgs": [
-                "--nolazy",
-                "-r",
-                "ts-node/register"
-            ],
-            "sourceMaps": true,
-            "cwd": "${workspaceRoot}",
-        }
     ]
 }
