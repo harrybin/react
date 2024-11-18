@@ -79,11 +79,8 @@
     "jsdom": "^25.0.1",
     "node-fetch": "^3.3.2",
     "prettier": "3.2.5",
-<<<<<<< HEAD
     "rimraf": "5.0.5",
-=======
     "style-loader": "4.0.0",
->>>>>>> 0d0eb11df659b6daa50e80c05e4dd3a150b1aaae
     "testcontainers": "10.8.2",
     "typescript": "5.4.5",
     "unplugin-auto-import": "^0.17.6",
