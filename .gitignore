@@ -21,3 +21,6 @@ playwrightTests/test-results/
 playwrightTests/test-reports
 /playwright/.cache/
 /.DS_Store
+
+#secrets
+.env
