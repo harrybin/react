@@ -81,7 +81,7 @@
     "prettier": "3.2.5",
     "rimraf": "5.0.5",
     "style-loader": "4.0.0",
-    "testcontainers": "10.8.2",
+    "testcontainers": "10.16.0",
     "typescript": "5.4.5",
     "unplugin-auto-import": "^0.17.6",
     "vite": "^5.2.10",
