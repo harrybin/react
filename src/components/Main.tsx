@@ -3,7 +3,7 @@ import { makeStyles } from 'tss-react/mui';
 import { AppTheme } from '../AppTheme';
 import { Container } from '@mui/material';
 // EXAMPLE_START
-import { Box, Button, Grid, Typography, Alert, TextField, Stack } from '@mui/material'; // multiple line import for template
+import { Box, Button, Grid2 as Grid, Typography, Alert, TextField, Stack } from '@mui/material'; // multiple line import for template
 import { useTranslation } from '../common/i18n/useTranslation';
 import ChuckNorrisJoke from './ChuckNorrisJoke';
 import { useNavigate } from 'react-router-dom';
@@ -43,26 +43,26 @@ function Main() {
     const { userData, setUserData } = useUserData();
     // EXAMPLE_END
     return (
-        <Container className={classes.mainContainer}>
+        (<Container className={classes.mainContainer}>
             {/* EXAMPLE_START */}
             <Typography variant="h1">{translate('app_title')}</Typography>
             <Grid container direction="row" justifyContent="flex-start" alignItems="center" spacing={4}>
-                <Grid item>
+                <Grid>
                     <Button variant="outlined" onClick={() => setCounter(counter + 1)}>
                         Click {counter}
                     </Button>
                 </Grid>
-                <Grid item>
+                <Grid>
                     <Button color="secondary" variant="contained" onClick={() => setCounter(counter + 1)}>
                         Click {counter}
                     </Button>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid size={4}>
                     <Button color="primary" variant="contained" onClick={() => navigate(routes.test)}>
                         Testroute
                     </Button>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid size={4}>
                     <Typography variant="h6">{translate('user')}</Typography>
                     <Stack direction="row">
                         <TextField
@@ -94,7 +94,6 @@ function Main() {
                 </Button>
             </ChuckNorrisJoke>
             {/* EXAMPLE_END */}
-
             {/* EXAMPLE_START */}
             <Box mt={4}>
                 <Alert severity={isInDebugMode ? 'error' : 'info'}>
@@ -114,7 +113,7 @@ function Main() {
                 <Markdown>{translate('debug_active')}</Markdown>
             </ConfirmationDialog>
             {/* EXAMPLE_END */}
-        </Container>
+        </Container>)
     );
 }
 
