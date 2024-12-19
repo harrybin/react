@@ -1,15 +1,13 @@
-import React, { useState, Suspense } from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from 'tss-react/mui';
 import { AppTheme } from '../AppTheme';
 import { Container } from '@mui/material';
 // EXAMPLE_START
-import { Box, Button, Grid, Typography, Alert, Divider, TextField, Stack } from '@mui/material'; // multiple line import for template
+import { Box, Button, Grid, Typography, Alert, TextField, Stack } from '@mui/material'; // multiple line import for template
 import { useTranslation } from '../common/i18n/useTranslation';
 import ChuckNorrisJoke from './ChuckNorrisJoke';
 import { useNavigate } from 'react-router-dom';
 import { ConfirmationDialog, If, Markdown, useDebugMode } from '@harrybin/react-common'; //EXAMPLE_CODE DebugMode
-import { DotNetApi } from './dotNetTemplate/DotNetApi';
-import { DotNetApiSkeleton } from './dotNetTemplate/DotNetApiSkeleton';
 import { useUserData } from '../contexts/UserContextProvider';
 import { routes } from '../routes/routes';
 
@@ -95,14 +93,8 @@ function Main() {
                     Reload data
                 </Button>
             </ChuckNorrisJoke>
+            {/* EXAMPLE_END */}
 
-            {/* EXAMPLE_END */}
-            {/* EXAMPLE_START */}
-            <Divider className={classes.divider} />
-            <Suspense fallback={<DotNetApiSkeleton />}>
-                <DotNetApi />
-            </Suspense>
-            {/* EXAMPLE_END */}
             {/* EXAMPLE_START */}
             <Box mt={4}>
                 <Alert severity={isInDebugMode ? 'error' : 'info'}>

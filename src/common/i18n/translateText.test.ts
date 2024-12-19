@@ -1,7 +1,8 @@
 import { IntlShape } from 'react-intl';
 import translateText from './translateText';
 import I18nTexts from './I18nTexts';
-import { vi } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import * as Vi from 'vitest';
 
 // Create a mock for the IntlShape
 const mockIntl: Partial<IntlShape> = {
@@ -17,7 +18,7 @@ describe('translateText function', () => {
         const textKey = 'existingKey' as keyof I18nTexts;
         const paramsObj = { param1: 'value1' };
 
-        (mockIntl.formatMessage as vi.Mock).mockReturnValue('translated message');
+        (mockIntl.formatMessage as Vi.Mock).mockReturnValue('translated message');
 
         const result = translateText(mockIntl as IntlShape, textKey, paramsObj);
 
@@ -27,7 +28,7 @@ describe('translateText function', () => {
 
     it('should return the key when key does not exist', () => {
         const textKey = 'nonExistingKey' as keyof I18nTexts;
-        (mockIntl.formatMessage as vi.Mock).mockImplementation(() => {
+        (mockIntl.formatMessage as Vi.Mock).mockImplementation(() => {
             throw new Error('Key not found');
         });
 
@@ -39,7 +40,7 @@ describe('translateText function', () => {
 
     it('should log a warning when in development mode', () => {
         const textKey = 'nonExistingKey' as keyof I18nTexts;
-        (mockIntl.formatMessage as vi.Mock).mockImplementation(() => {
+        (mockIntl.formatMessage as Vi.Mock).mockImplementation(() => {
             throw new Error('Key not found');
         });
 
@@ -55,7 +56,7 @@ describe('translateText function', () => {
 
     it('should not log a warning when not in development mode', () => {
         const textKey = 'nonExistingKey' as keyof I18nTexts;
-        (mockIntl.formatMessage as vi.Mock).mockImplementation(() => {
+        (mockIntl.formatMessage as Vi.Mock).mockImplementation(() => {
             throw new Error('Key not found');
         });
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { MessagesProvider } from './MessagesProvider';
 import { SnackbarProvider } from 'notistack';
-import { vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 vi.mock('notistack', () => ({
     SnackbarProvider: vi.fn(({ children }) => <div>{children}</div>),
@@ -19,7 +19,7 @@ describe('MessagesProvider', () => {
                 <div>Test child</div>
             </MessagesProvider>
         );
-        expect(screen.getByText('Test child')).toBeInTheDocument();
+        expect(screen.getByText('Test child')).exist;
     });
 
     it('renders SnackbarProvider with correct props', () => {
@@ -34,8 +34,7 @@ describe('MessagesProvider', () => {
                 hideIconVariant: true,
                 preventDuplicate: true,
                 maxSnack: 3,
-            }),
-            {}
+            })
         );
     });
 

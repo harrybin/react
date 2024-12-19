@@ -30,7 +30,7 @@ describe('ErrorBoundary', () => {
 
     it('should render children correctly when there is no error', () => {
         render(<ErrorBoundary>{'child'}</ErrorBoundary>);
-        expect(screen.getByText('child')).toBeInTheDocument();
+        expect(screen.getByText('child')).exist;
     });
 
     it('should render default fallback when there is an error', () => {
@@ -44,7 +44,7 @@ describe('ErrorBoundary', () => {
                 </>
             </ErrorBoundary>
         );
-        expect(screen.getByText('Stacktrace:')).toBeInTheDocument();
+        expect(screen.getByText('Stacktrace:')).exist;
     });
 
     it('should render fallback when there is an error', () => {
@@ -56,6 +56,6 @@ describe('ErrorBoundary', () => {
                 <ThrowError />
             </ErrorBoundary>
         );
-        expect(screen.getByText('error')).toBeInTheDocument();
+        expect(screen.getByText('error')).exist;
     });
 });
