@@ -89,7 +89,7 @@
     "vite-plugin-node-polyfills": "^0.22.0",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^2.1.8",
-    "vitest-fetch-mock": "^0.4.2",
+    "vitest-fetch-mock": "^0.4.3",
     "vitest-preview": "^0.0.1",
     "vitest-sonar-reporter": "^2.0.0"
   }
