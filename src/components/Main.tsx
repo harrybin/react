@@ -3,7 +3,8 @@ import { makeStyles } from 'tss-react/mui';
 import { AppTheme } from '../AppTheme';
 import { Container } from '@mui/material';
 // EXAMPLE_START
-import { Box, Button, Grid2 as Grid, Typography, Alert, TextField, Stack } from '@mui/material'; // multiple line import for template
+import { Box, Button, Typography, Alert, TextField, Stack } from '@mui/material';
+import { Grid } from '@mui/material';
 import { useTranslation } from '../common/i18n/useTranslation';
 import ChuckNorrisJoke from './ChuckNorrisJoke';
 import { useNavigate } from 'react-router-dom';

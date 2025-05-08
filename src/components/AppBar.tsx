@@ -39,14 +39,14 @@ export function AppBar() {
     return (
         <AppBarMui>
             <Grid container direction="row" justifyContent="space-between">
-                <Grid item>
+                <Grid>
                     <Grid container alignItems="center">
-                        <Grid item>
+                        <Grid>
                             <IconButton size="large" edge="start" aria-label="menu" className={classes.colorWhite}>
                                 <MenuIcon />
                             </IconButton>
                         </Grid>
-                        <Grid item>
+                        <Grid>
                             <Stack direction="row" spacing={2}>
                                 <Typography variant="h6" noWrap component="div">
                                     react
@@ -56,10 +56,10 @@ export function AppBar() {
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid item>
+                <Grid>
                     <Grid container alignItems="center" justifyContent="flex-end" spacing={2}>
                         {/* EXAMPLE_START */}
-                        <Grid item>
+                        <Grid>
                             <If cond={isInDebugMode}>
                                 <Button variant="contained" color="error" endIcon={<BugReportIcon />}>
                                     {translate('debug_mode')}
@@ -67,12 +67,12 @@ export function AppBar() {
                             </If>
                         </Grid>
                         {/* EXAMPLE_END */}
-                        <Grid item>
+                        <Grid>
                             <IconButton size="large" edge="start" aria-label="menu" className={classes.colorWhite}>
                                 <SettingsIcon />
                             </IconButton>
                         </Grid>
-                        <Grid item>
+                        <Grid>
                             <IconButton size="large" edge="start" aria-label="menu" className={classes.colorWhite}>
                                 <Tooltip title={`${userData.Firstname} ${userData.Lastname}`}>
                                     <Avatar className={classes.userAvatar}>{getUserInfo()}</Avatar>

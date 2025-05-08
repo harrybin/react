@@ -25,13 +25,13 @@ function MainSkeletonComp() {
                 {/* EXAMPLE_START */}
                 <Skeleton variant="rectangular" width={theme.spacing(32)} height={theme.spacing(8)}></Skeleton>
                 <Grid container direction="row" justifyContent="flex-start" alignItems="center" spacing={4}>
-                    <Grid item>
+                    <Grid>
                         <Skeleton variant="text" width={theme.spacing(9)} height={theme.spacing(8)} />
                     </Grid>
-                    <Grid item>
+                    <Grid>
                         <Skeleton variant="text" width={theme.spacing(9)} height={theme.spacing(8)} />
                     </Grid>
-                    <Grid item>
+                    <Grid>
                         <Skeleton variant="text" width={theme.spacing(11)} height={theme.spacing(8)} />
                     </Grid>
                 </Grid>
