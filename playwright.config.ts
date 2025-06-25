@@ -25,10 +25,21 @@ export default defineConfig({
     /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
     use: {
         /* Base URL to use in actions like `await page.goto('/')`. */
-        baseURL: process.env.URL || 'http://localhost:3000',
+        baseURL: process.env.URL || 'http://localhost:4173',
 
         /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
         video: 'on-first-retry',
+        
+        /* Screenshot settings for visual testing */
+        screenshot: 'only-on-failure',
+    },
+
+    /* Global test configuration for expect */
+    expect: {
+        /* Threshold for visual comparisons */
+        threshold: 0.2,
+        /* Timeout for expect assertions */
+        timeout: 10000,
     },
 
     /* Configure projects for major browsers */
@@ -38,9 +49,9 @@ export default defineConfig({
             use: { ...devices['Desktop Chrome'] },
         },
     ],
-    webServer: {
-        command: 'npm run start',
-        url: 'http://127.0.0.1:3000',
-        reuseExistingServer: !process.env.CI,
-    },
+    // webServer: {
+    //     command: 'npm run preview',
+    //     url: 'http://127.0.0.1:4173',
+    //     reuseExistingServer: !process.env.CI,
+    // },
 });

@@ -19,6 +19,7 @@ webpack_stats.json
 
 playwrightTests/test-results/
 playwrightTests/test-reports
+!playwrightTests/**/test-results/**/snapshots.spec.ts-snapshots/
 /playwright/.cache/
 /.DS_Store
 
