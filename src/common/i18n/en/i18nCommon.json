@@ -1,38 +1,42 @@
 {
-  "app_title": {
-    "message": "Hello World"
-  },
-  "loading": {
-    "message": "Loading ..."
-  },
-  "error_message_generic": {
-    "message": "An error occurred. Please report it.",
-    "description": "A descrption for the message giving further hints/help for a translator or other developers"
-  },
-  "error_message": {
-    "message": "Error: "
-  },
-  "debug_active": {
-    "message": "Debug mode active. Press **Ctrl + Alt + Shift + D ** to leave.",
-    "description": "This text will be parsed as markdown"
-  },
-  "debug_hint": {
-    "message": "You can activate debug mode using this shortcut:  **Ctrl + Alt + Shift + D**.",
-    "description": "This text will be parsed as markdown"
-  },
-  "debug_mode": {
-    "message": "Debug mode"
-  },
-  "firstname": {
-    "message": "Firstname"
-  },
-  "lastname": {
-    "message": "Lastname"
-  },
-  "user": {
-    "message": "User"
-  },
-  "route_not_found": {
-    "message": "route not found"
-  }
+    "app_title": {
+        "message": "Hello World"
+    },
+    "loading": {
+        "message": "Loading ..."
+    },
+    "error_message_generic": {
+        "message": "An error occurred. Please report it.",
+        "description": "A descrption for the message giving further hints/help for a translator or other developers"
+    },
+    "error_message": {
+        "message": "Error: "
+    },
+    "debug_active": {
+        "message": "Debug mode active. Press **Ctrl + Alt + Shift + D ** to leave.",
+        "description": "This text will be parsed as markdown"
+    },
+    "debug_hint": {
+        "message": "You can activate debug mode using this shortcut:  **Ctrl + Alt + Shift + D**.",
+        "description": "This text will be parsed as markdown"
+    },
+    "debug_mode": {
+        "message": "Debug mode"
+    },
+    "firstname": {
+        "message": "Firstname"
+    },
+    "lastname": {
+        "message": "Lastname"
+    },
+    "user": {
+        "message": "User"
+    },
+    "route_not_found": {
+        "message": "route not found"
+    },
+    "missing_translation": {
+        "message": "Missing translation",
+        "description": "This translation is currently missing."
+    }
 }
