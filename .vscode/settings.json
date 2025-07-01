@@ -19,6 +19,9 @@
         200
     ],
     "editor.formatOnSave": true,
+    "[*.md]": {
+        "editor.formatOnSave": false
+    },
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": "explicit"
     },
