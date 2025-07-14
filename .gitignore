@@ -17,6 +17,8 @@ webpack_stats.json
 .tye/
 .volumes/
 
+# playwright test artifacts
+test-results/
 playwrightTests/test-results/
 playwrightTests/test-reports
 /playwright/.cache/
