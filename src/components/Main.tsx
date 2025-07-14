@@ -37,6 +37,7 @@ function Main() {
     const navigate = useNavigate();
     const [counter, setCounter] = useState<number>(0);
     const [queryCount, setQueryCount] = useState<number>(0);
+    const [showHalloStarke, setShowHalloStarke] = useState<boolean>(false);
 
     const { isInDebugMode } = useDebugMode();
     const [isDebugVisible, setIsDebugVisible] = useState<boolean>(true);
@@ -64,6 +65,11 @@ function Main() {
                     </Button>
                 </Grid>
                 <Grid size={4}>
+                    <Button color="primary" variant="contained" onClick={() => setShowHalloStarke(true)}>
+                        Zeige Hallo Starke
+                    </Button>
+                </Grid>
+                <Grid size={4}>
                     <Typography variant="h6">{translate('user')}</Typography>
                     <Stack direction="row">
                         <TextField
@@ -81,6 +87,18 @@ function Main() {
                     </Stack>
                 </Grid>
             </Grid>
+            {/* Hallo Starke Message Box */}
+            {showHalloStarke && (
+                <Box mt={4}>
+                    <Alert 
+                        severity="success" 
+                        onClose={() => setShowHalloStarke(false)}
+                        sx={{ maxWidth: 400 }}
+                    >
+                        Hallo Starke
+                    </Alert>
+                </Box>
+            )}
             {/* EXAMPLE_START */}
             <ChuckNorrisJoke queryTrigger={queryCount}>
                 <Button
