@@ -34,7 +34,11 @@ describe('MessagesProvider', () => {
                 hideIconVariant: true,
                 preventDuplicate: true,
                 maxSnack: 3,
-            })
+                Components: expect.any(Object),
+                classes: expect.any(Object),
+                children: expect.any(Object),
+            }),
+            undefined
         );
     });
 
@@ -50,8 +54,11 @@ describe('MessagesProvider', () => {
                     horizontal: 'center',
                     vertical: 'bottom',
                 },
+                Components: expect.any(Object),
+                classes: expect.any(Object),
+                children: expect.any(Object),
             }),
-            {}
+            undefined
         );
     });
 });
