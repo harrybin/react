@@ -31,6 +31,8 @@
     "lint:fix:eslint": "eslint --fix --ext js,jsx,ts,tsx .",
     "clean": "rimraf dist && rimraf coverage",
     "play": "../template-net7srv/DotnetApiTemplate/buildDockerImage.sh && npx playwright test",
+    "play:simple": "npx playwright test",
+    "play:install": "npx playwright install || echo 'Browser install failed, continuing with system browser'",
     "play:ui": "../template-net7srv/DotnetApiTemplate/buildDockerImage.sh && npx playwright test --ui",
     "play:debug": "../template-net7srv/DotnetApiTemplate/buildDockerImage.sh && npx playwright test --debug",
     "play:generate": "../template-net7srv/DotnetApiTemplate/buildDockerImage.sh && npx playwright codegen"

@@ -10,7 +10,7 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-    timeout: 20000,
+    timeout: 30000, // Increased timeout for CI
     testDir: 'playwrightTests',
     /* Run tests in files in parallel */
     fullyParallel: false,
@@ -39,20 +39,26 @@ export default defineConfig({
         /* Threshold for visual comparisons */
         threshold: 0.2,
         /* Timeout for expect assertions */
-        timeout: 10000,
+        timeout: 15000, // Increased timeout for CI
     },
 
     /* Configure projects for major browsers */
     projects: [
         {
             name: 'chromium',
-            use: { ...devices['Desktop Chrome'] },
+            use: { 
+                ...devices['Desktop Chrome'],
+                // Use headless mode for CI
+                headless: !!process.env.CI,
+            },
         },
     ],
     webServer: {
-        command: 'npm run preview',
+        command: 'npm run build && npm run preview',
         url: 'http://127.0.0.1:4173',
         reuseExistingServer: !process.env.CI,
-        timeout: 120 * 1000,
+        timeout: 240 * 1000, // 4 minutes for build + preview
+        stdout: 'pipe',
+        stderr: 'pipe',
     },
 });
