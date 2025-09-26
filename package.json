@@ -31,6 +31,8 @@
     "lint:fix:eslint": "eslint --fix --ext js,jsx,ts,tsx .",
     "clean": "rimraf dist && rimraf coverage",
     "play": "../template-net7srv/DotnetApiTemplate/buildDockerImage.sh && npx playwright test",
+    "play:simple": "npx playwright test",
+    "play:install": "npx playwright install || echo 'Browser install failed, continuing with system browser'",
     "play:ui": "../template-net7srv/DotnetApiTemplate/buildDockerImage.sh && npx playwright test --ui",
     "play:debug": "../template-net7srv/DotnetApiTemplate/buildDockerImage.sh && npx playwright test --debug",
     "play:generate": "../template-net7srv/DotnetApiTemplate/buildDockerImage.sh && npx playwright codegen"
@@ -73,7 +75,7 @@
     "@vitest/ui": "^3.1.3",
     "browserslist": "4.24.5",
     "editorconfig": "2.0.1",
-    "eslint": "9.26.0",
+    "eslint": "^9.36.0",
     "eslint-config-prettier": "10.1.3",
     "eslint-plugin-prettier": "5.4.0",
     "eslint-plugin-react": "7.37.5",
@@ -92,7 +94,7 @@
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.1.3",
     "vitest-fetch-mock": "^0.4.5",
-    "vitest-preview": "^0.0.1",
+    "vitest-preview": "^0.0.2",
     "vitest-sonar-reporter": "^2.0.1"
   }
 }
